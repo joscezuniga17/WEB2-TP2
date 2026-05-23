@@ -22,7 +22,7 @@ class LoginController {
 
     public function verificarLogin() {
 
-        session_start();
+        
 
         $usuario = $_POST["nombre_usuario"];
         $password = $_POST["password"];
@@ -36,8 +36,9 @@ class LoginController {
         exit();
 
         } else {
-            $this->view->showLogin("Usuario o contraseña incorrectos");
-            header("Location: " . BASE_URL . "login");
+            
+            $this->view->showLogin("Contraseña incorrecta");
+           
            
         } 
     }
@@ -47,7 +48,7 @@ class LoginController {
         session_start();
 
         if (!isset($_SESSION["IS_ADMIN"]) || $_SESSION["IS_ADMIN"] !== true) {
-            echo "Acceso denegado";
+            header("Location: " . BASE_URL . "login");
             die();
         }
     }

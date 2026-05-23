@@ -5,6 +5,8 @@ define('BASE_URL','//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']
 require_once __DIR__ . '/app/controllers/canciones.controller.php';
 require_once __DIR__ . '/app/controllers/playlist.controller.php';
 require_once __DIR__ . '/app/controllers/login.controller.php';
+require_once __DIR__ . '/app/middlewares/guard.middleware.php';
+require_once __DIR__ . '/app/middlewares/session.middleware.php';
 
 
 
@@ -28,6 +30,9 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
+$request = new StdClass();
+$request = (new SessionMiddleware()) ->run($request);
+
 // ruteo
 switch ($params[0]) {  
     case 'home':
@@ -35,16 +40,19 @@ switch ($params[0]) {
         $playlistController->home();
         break; 
     case 'listar':
+        $request = (new GuardMiddleware())->run($request);
         $listarController = new CancionesController();
-        $listarController->showCanciones();
+        $listarController->showCanciones($request);
         break;
     case 'canciones':
+        $request = (new GuardMiddleware())->run($request);
         $listarController = new CancionesController();
         $listarController->showCancion($params[1]);
         break;
     case 'playlist':
+        $request = (new GuardMiddleware())->run($request);
         $playlistController = new PlaylistController();
-        $playlistController->showPlaylist($params[1]);
+        $playlistController->showPlaylist($params[1] ?? null);
         break;
     case 'login':
         $logincontroller = new LoginController();
