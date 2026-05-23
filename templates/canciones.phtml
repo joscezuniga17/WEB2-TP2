@@ -1,15 +1,16 @@
-
-<h1>Lista de canciones</h1>
-
+<h2>Lista de Canciones:</h2>
 <ul>
 
 <?php foreach($canciones as $cancion): ?>
 
     <li>
-        <?= $cancion->nombre_cancion ?>
-        -
-        Playlist:
-        <?= $cancion->nombre_playlist ?>
+
+        <a href="<?= BASE_URL ?>canciones/<?= $cancion->id_cancion ?>">
+
+            <?= $cancion->nombre_cancion ?>
+
+        </a>
+
     </li>
 
 <?php endforeach; ?>

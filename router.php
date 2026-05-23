@@ -8,8 +8,9 @@ define('BASE_URL','//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']
 /*TABLA DE RUTEO
 *home -> PlaylistController::home()
 *listar -> CancionesController::showCanciones()
+*canciones ->CancionesController::showCanciones($id)
 *playlist -> PlaylistController::showPlaylist($id)
-*(b)
+*
 **/
 
 $action = 'home';
@@ -29,6 +30,10 @@ switch ($params[0]) {
     case 'listar':
         $listarController = new CancionesController();
         $listarController->showCanciones();
+        break;
+    case 'canciones':
+        $listarController = new CancionesController();
+        $listarController->showCancion($params[1]);
         break;
     case 'playlist':
         $playlistController = new PlaylistController();

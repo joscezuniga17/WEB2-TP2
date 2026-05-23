@@ -6,6 +6,11 @@ class CancionesView {
 
         require './templates/canciones.phtml';
     }
+    
+    public function showCancion($cancion) {
+
+        require './templates/cancionid.phtml';
+    }
 }
 
 ?>

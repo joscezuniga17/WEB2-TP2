@@ -22,6 +22,19 @@ class CancionesModel {
         return $canciones;
     }
 
+    public function getSongListId($id) {
+        $query = $this->db->prepare('SELECT canciones.*,playlist.nombre_playlist
+        FROM canciones 
+        INNER JOIN playlist
+        ON canciones.id_playlist = playlist.id_playlist
+        WHERE id_cancion = ?');
+
+        $query->execute([$id]);
+        $cancion = $query->fetch(PDO::FETCH_OBJ);
+
+        return $cancion;
+    }
+
 
 }
 
