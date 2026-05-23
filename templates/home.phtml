@@ -1,0 +1,15 @@
+<h1>Playlists</h1>
+
+<ul>
+
+<?php foreach($playlists as $playlist): ?>
+
+    <li>
+        <a href="playlist/<?= $playlist->id_playlist ?>" type='button' class='btn btn-danger'>
+        <?= $playlist->nombre_playlist ?>
+        </a>
+    </li>
+
+<?php endforeach; ?>
+
+</ul>

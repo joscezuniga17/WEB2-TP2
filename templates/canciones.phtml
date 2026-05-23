@@ -1,0 +1,17 @@
+
+<h1>Lista de canciones</h1>
+
+<ul>
+
+<?php foreach($canciones as $cancion): ?>
+
+    <li>
+        <?= $cancion->nombre_cancion ?>
+        -
+        Playlist:
+        <?= $cancion->nombre_playlist ?>
+    </li>
+
+<?php endforeach; ?>
+
+</ul>
