@@ -8,7 +8,7 @@ define('BASE_URL','//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']
 /*TABLA DE RUTEO
 *home -> PlaylistController::home()
 *listar -> CancionesController::showCanciones()
-*canciones ->CancionesController::showCanciones($id)
+*canciones ->CancionesController::showCancion($id)
 *playlist -> PlaylistController::showPlaylist($id)
 *
 **/

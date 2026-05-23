@@ -21,10 +21,17 @@ class PlaylistModel {
 
     public function getPlaylistId($id){
 
-        $query = $this->db->prepare('SELECT * FROM playlist WHERE id_playlist= ?');
+        $query = $this->db->prepare('SELECT canciones.*, playlist.nombre_playlist
+        FROM canciones
+        INNER JOIN playlist
+        ON canciones.id_playlist = playlist.id_playlist
+        WHERE playlist.id_playlist = ?');
+
         $query->execute([$id]);
 
-        return $query->fetch(PDO::FETCH_OBJ);
+        $playlist = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $playlist;
     }
     
 

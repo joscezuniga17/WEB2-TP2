@@ -1,5 +1,11 @@
-<h1>
+<h1><?= $playlist[0]->nombre_playlist ?></h1>
 
-    <?= $playlist->nombre_playlist ?>
+<ul>
+<?php foreach($playlist as $cancion): ?>
 
-</h1>
+    <li>
+        <?= $cancion->nombre_cancion ?>
+    </li>
+
+<?php endforeach; ?>
+</ul>
