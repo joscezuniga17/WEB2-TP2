@@ -17,67 +17,44 @@ Para ejecutar la aplicación se necesita:
 - PHP
 - XAMPP (recomendado)
 
-### Instalación
+# Instalación
 1. Copiar la carpeta del proyecto dentro de:
-
 C:\xampp\htdocs\TP2
-
 2. Iniciar Apache y MySQL desde XAMPP.
-
 3. Ingresar a phpMyAdmin:
-
 http://localhost/phpmyadmin
-
 4. Crear la base de datos:
-
 db_playlist
-
 5. Importar el archivo SQL incluido en el proyecto.
-
 6. Verificar que la configuración de conexión coincida con:
-
-- Host: localhost
-- Usuario: root
-- Contraseña: vacía
-- Base de datos: db_playlist
-
+. Host: localhost
+.Usuario: root
+. Contraseña: vacía
+ .Base de datos: db_playlist
 7. Abrir en el navegador:
-
 http://localhost/TP2/
-
-## Acceso administrador
-
+# Acceso administrador
 Para acceder a las funciones protegidas se debe iniciar sesión con:
-
 Usuario: webadmin  
 Contraseña: admin
-
-
 ## Funcionalidades
 
-### Usuario público
-
-- Visualizar playlists
-- Ver listado de canciones
-- Ver detalle de canciones
-
-### Administrador
-
+# Usuario público
+. Visualizar playlists
+. Ver listado de canciones
+. Ver detalle de canciones
+# Administrador
 Luego de iniciar sesión puede:
-
-- Agregar canciones
-- Editar canciones
-- Eliminar canciones
-- Administrar playlists
-
-## Navegación
-
+. Agregar canciones
+. Editar canciones
+. Eliminar canciones
+. Administrar playlists
+# Navegación
 Rutas principales:
-
-- `/home`
-- `/listar`
-- `/login`
-- `/logout`
+. `/home`
+. `/listar`
+. `/login`
+. `/logout`
 
 
 
