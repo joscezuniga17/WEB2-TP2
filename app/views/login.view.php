@@ -8,3 +8,4 @@ class LoginView {
         require './templates/login.phtml';
     }
 }
+?>
