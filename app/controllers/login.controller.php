@@ -22,7 +22,7 @@ class LoginController {
 
     public function verificarLogin() {
 
-        
+     
 
         $usuario = $_POST["nombre_usuario"];
         $password = $_POST["password"];
@@ -38,7 +38,7 @@ class LoginController {
         } else {
             
             $this->view->showLogin("Contraseña incorrecta");
-           
+            
            
         } 
     }

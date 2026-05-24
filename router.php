@@ -8,7 +8,7 @@ require_once __DIR__ . '/app/controllers/login.controller.php';
 require_once __DIR__ . '/app/middlewares/guard.middleware.php';
 require_once __DIR__ . '/app/middlewares/session.middleware.php';
 
-
+session_start();
 
 
 /*TABLA DE RUTEO
@@ -30,12 +30,15 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
+
+
 $request = new StdClass();
 $request = (new SessionMiddleware()) ->run($request);
 
 // ruteo
 switch ($params[0]) {  
     case 'home':
+        $request = (new GuardMiddleware())->run($request);
         $playlistController = new PlaylistController();
         $playlistController->home();
         break; 
