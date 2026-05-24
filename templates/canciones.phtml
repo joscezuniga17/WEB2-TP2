@@ -17,4 +17,29 @@
 
 </ul>
 
+
+
+<form method="POST" action="add">
+    <input type="text" name="nombre_cancion" placeholder="Canción">
+    <input type="text" name="artista" placeholder="Artista">
+    <input type="text" name="album" placeholder="Album">
+    <input type="text" name="genero" placeholder="Genero">
+    <input type="text" name="anio" placeholder="Año">
+    <input type="text" name="duracion" placeholder="Duracion">
+    <input type="text" name="mood" placeholder="Mood">
+    <input type="text" name="youtube_link" placeholder="Link">
+    <input type="text" name="id_playlist" placeholder="Playlist">
+
+    <select name="id_playlist">
+        <?php foreach ($playlists as $playlist): ?>
+            <option value="<?= $playlist->id ?>">
+                <?= $playlist->nombre ?>
+            </option>
+        <?php endforeach; ?>
+        
+    </select>
+
+    <button type="submit">Guardar</button>
+</form>
+
 <a href="<?= BASE_URL ?>logout">Cerrar sesión</a>

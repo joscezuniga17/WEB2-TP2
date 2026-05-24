@@ -69,6 +69,16 @@ switch ($params[0]) {
         $logincontroller = new LoginController();
         $logincontroller->logout();
         break;
+    case 'agregar':
+        $request = (new GuardMiddleware())->run($request);
+        $agregarcontroller = new CancionesController();
+        $agregarcontroller->Agregar();
+        break;
+    case 'eliminar':
+        $request = (new GuardMiddleware())->run($request);
+        $eliminarcontroller = new CancionesController();
+        $eliminarcontroller->eliminar($id);
+        break;
     default:
         echo '404 error';
         break;

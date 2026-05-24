@@ -24,6 +24,30 @@ class CancionesController{
         $this->view->showCancion($cancion);        
     }
 
+    public function Agregar() {
+        if(!empty($_POST)){
+            $nombre = $_POST['nombre_cancion'];
+            $artista = $_POST['artista'];
+            $album = $_POST['assigned'];
+            $genero = $_POST['type'];
+            $año = $_POST['anio'];
+            $duracion = $_POST['duracion'];
+            $mood = $_POST['mood'];
+            $link = $_POST['youtube_link'];
+            $playlist = $_POST['id_playlist'];
 
+            $this->model->insertSong($nombre, $artista, $album, $genero, $año, $duracion, $mood, $link, $playlist);
 
+            header("Location: " . BASE_URL );  
+        }
+                       
+    }
+
+    public function eliminar($id) {
+        $this->model->eliminar($id);
+        header("Location: home");
+    }
 }
+
+
+

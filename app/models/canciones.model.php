@@ -35,6 +35,17 @@ class CancionesModel {
         return $cancion;
     }
 
+    public function insertSong($nombre, $artista, $album, $genero, $año, $duracion, $mood, $link, $playlist) {
+
+    $query = $this->db->prepare(" INSERT INTO canciones (nombre_cancion, artista, album, genero, anio, duracion, mood, youtube_link, id_playlist) VALUES (?, ?, ?)");
+
+    $query->execute([$nombre, $artista, $album, $genero, $año, $duracion, $mood, $link, $playlist]);
+}
+    public function eliminar($id) {
+        $query = $this->db->prepare("DELETE FROM canciones WHERE id = ?");
+        $query->execute([$id]);
+    }
+
 
 }
 
