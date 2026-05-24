@@ -8,7 +8,7 @@
         <a href="<?= BASE_URL ?>canciones/<?= $cancion->id_cancion ?>">
 
             <?= $cancion->nombre_cancion ?>
-
+            <a href="edit/<?= $cancion->id ?>">Editar</a>
         </a>
 
     </li>
@@ -16,8 +16,6 @@
 <?php endforeach; ?>
 
 </ul>
-
-
 
 <form method="POST" action="add">
     <input type="text" name="nombre_cancion" placeholder="Canción">
@@ -36,10 +34,11 @@
                 <?= $playlist->nombre ?>
             </option>
         <?php endforeach; ?>
-        
+
     </select>
 
     <button type="submit">Guardar</button>
 </form>
+
 
 <a href="<?= BASE_URL ?>logout">Cerrar sesión</a>

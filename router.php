@@ -77,7 +77,12 @@ switch ($params[0]) {
     case 'eliminar':
         $request = (new GuardMiddleware())->run($request);
         $eliminarcontroller = new CancionesController();
-        $eliminarcontroller->eliminar($id);
+        $eliminarcontroller->eliminar($params[1]);
+        break;
+    case 'editar':
+        $request = (new GuardMiddleware())->run($request);
+        $editarcontroller = new CancionesController();
+        $editarcontroller->editar($params[1]);
         break;
     default:
         echo '404 error';

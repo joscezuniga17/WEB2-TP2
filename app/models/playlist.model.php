@@ -33,6 +33,15 @@ class PlaylistModel {
 
         return $playlist;
     }
+
+    public function getPlaylists() {
+
+        $query = $this->db->prepare("SELECT * FROM playlist");
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
     
 
 }
+?>

@@ -1,0 +1,44 @@
+<h2>Editar canción</h2>
+
+<form method="POST" action="update/<?= $cancion->id ?>">
+
+    <input type="text" name="nombre_cancion"
+        value="<?= $cancion->nombre_cancion ?>">
+
+    <input type="text" name="artista"
+        value="<?= $cancion->artista ?>">
+
+        <input type="text" name="album"
+        value="<?= $cancion->album ?>">
+
+        <input type="text" name="genero"
+        value="<?= $cancion->genero ?>">
+
+        <input type="text" name="anio"
+        value="<?= $cancion->anio ?>">
+
+        <input type="text" name="duracion"
+        value="<?= $cancion->duracion ?>">
+
+        <input type="text" name="mood"
+        value="<?= $cancion->mood ?>">
+
+        <input type="text" name="youtube_link"
+        value="<?= $cancion->youtube_link ?>">
+
+        <input type="text" name="id_playlist"
+        value="<?= $cancion->id_playlist ?>">
+
+
+    <select name="id_playlist">
+        <?php foreach ($playlists as $playlist): ?>
+            <option value="<?= $playlist->id ?>"
+                <?= $playlist->id == $cancion->id_playlist ? 'selected' : '' ?>>
+                <?= $playlist->nombre ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <button type="submit">Actualizar</button>
+
+</form>

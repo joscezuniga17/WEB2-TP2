@@ -46,8 +46,34 @@ class CancionesModel {
         $query->execute([$id]);
     }
 
+    public function editar($nombre, $artista, $album, $genero, $año, $duracion, $mood ,$link, $playlist) {
+    $query = $this->db->prepare(" UPDATE canciones
+        SET nombre_cancion = ?, artista = ?, album = ? , genero = ? , anio = ? , duracion = ? , mood = ? , youtube_link = ? , id_playlist = ?
+        WHERE id = ?");
+
+    $query->execute([$nombre, $artista, $album , $genero , $año, $duracion , $mood, $link, $playlist]);
+}
+    public function getById($id) {
+
+    $query = $this->db->prepare("SELECT * FROM canciones WHERE id = ?");
+
+    $query->execute([$id]);
+
+    return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function getPlaylists() {
+
+    $query = $this->db->prepare("SELECT * FROM playlist WHERE id = ?");
+
+    $query->execute();
+
+    return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+
 
 }
-
+?>
 
 
